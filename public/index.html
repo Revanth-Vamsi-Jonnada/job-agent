@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6b4f">
+<meta name="description" content="AI job search agent: finds jobs on company careers pages, rates your chances and tailors your CV and cover letter.">
+<title>Job Agent</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><img src="/icons/icon.svg" alt="" width="28" height="28"><span>Job Agent</span></div>
+    <nav class="nav" aria-label="Main">
+      <button data-view="agent" class="active"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg><span>Search</span></button>
+      <button data-view="daily"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>Daily 50</span></button>
+      <button data-view="tracker"><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4zm0 6h16v4H4zm0 6h10v4H4z"/></svg><span>Tracker</span><b class="badge" id="trackerBadge" hidden></b></button>
+      <button data-view="profile"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14z"/></svg><span>My CV</span></button>
+    </nav>
+    <div class="conn" id="conn"></div>
+  </aside>
+
+  <main id="main">
+    <!-- SEARCH / AGENT -->
+    <section class="view active" id="view-agent">
+      <div class="hero">
+        <h1 id="greet">Hi! What job should I hunt for today?</h1>
+        <p class="muted">I search Google for company careers pages only (no LinkedIn or job boards), rate your chance for each job, and tailor your CV and cover letter.</p>
+        <form id="searchForm" class="ask" autocomplete="off">
+          <input id="q" name="q" placeholder="e.g. graduate AI engineer, data analyst, junior data scientist" aria-label="Job to search for" required>
+          <button class="btn primary" id="goBtn" type="submit"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg><span>Search</span></button>
+        </form>
+        <div class="chips" id="quick"></div>
+        <div class="filters">
+          <div class="seg" id="posted" role="radiogroup" aria-label="Date posted">
+            <button type="button" data-v="24h">Yesterday</button>
+            <button type="button" data-v="3d">3 days</button>
+            <button type="button" data-v="7d" class="on">Week</button>
+            <button type="button" data-v="any">Any time</button>
+          </div>
+          <label class="field"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+            <input id="loc" list="locs" value="UK" aria-label="Location"><datalist id="locs"><option>UK</option><option>London</option><option>Manchester</option><option>Leeds</option><option>Newcastle</option><option>Edinburgh</option><option>Birmingham</option><option>Bristol</option><option>Remote</option></datalist></label>
+          <label class="field small">Show
+            <select id="limit"><option>25</option><option selected>50</option><option>100</option></select></label>
+        </div>
+      </div>
+
+      <div class="agentlog" id="agentlog" hidden>
+        <div class="agentlog-head"><span class="pulse"></span><strong id="agentTitle">Agent working…</strong><span class="muted" id="agentCount"></span></div>
+        <div class="bar"><i id="agentBar"></i></div>
+        <ol id="agentSteps"></ol>
+      </div>
+
+      <div class="results-head">
+        <div><strong id="resCount">Loading…</strong> <span class="muted" id="resNote"></span></div>
+        <div class="tools">
+          <div class="seg small" id="chanceFilter">
+            <button data-v="" class="on">All</button><button data-v="High">High</button><button data-v="Medium">Medium</button><button data-v="Low">Low</button>
+          </div>
+          <input id="filter" placeholder="Filter…" aria-label="Filter results">
+          <button class="btn ghost" id="csvBtn" title="Export CSV">CSV</button>
+        </div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- DAILY 50 -->
+    <section class="view" id="view-daily">
+      <h1>Daily 50</h1>
+      <p class="muted">Every day the agent searches your saved searches, picks the best new jobs and prepares a tailored CV + cover letter for each. You review and submit each one on the company's careers page.</p>
+      <div class="panel run">
+        <div>
+          <div class="big" id="dailyHead">Ready</div>
+          <div class="muted" id="dailySub"></div>
+        </div>
+        <button class="btn primary lg" id="runBtn"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>Run today's search now</span></button>
+      </div>
+      <div class="bar big"><i id="dailyBar"></i></div>
+      <div class="summary" id="dailySummary"></div>
+      <details class="panel" id="dailyLogBox"><summary>Agent activity log</summary><ol class="log" id="dailyLog"></ol></details>
+
+      <form class="panel settings" id="settingsForm">
+        <h2>Daily search settings</h2>
+        <label>Searches (one per line)<textarea name="queries" rows="4"></textarea></label>
+        <div class="grid2">
+          <label>Location<input name="location" list="locs"></label>
+          <label>Posted<select name="posted"><option value="24h">Yesterday (last 24h)</option><option value="3d">Last 3 days</option><option value="7d">Last week</option><option value="any">Any time</option></select></label>
+          <label>Jobs per day<input name="dailyTarget" type="number" min="1" max="100"></label>
+          <label>Minimum chance<select name="minLabel"><option>Low</option><option>Medium</option><option>High</option></select></label>
+          <label class="check"><input type="checkbox" name="autoRun"> Run automatically every day</label>
+          <label>At (hour, 0–23)<input name="runHour" type="number" min="0" max="23"></label>
+        </div>
+        <p class="muted small">Auto-run works while the app is running on your PC. Each search makes 12 Google searches via Apify, plus one page fetch per prepared job.</p>
+        <button class="btn primary" type="submit">Save settings</button>
+      </form>
+    </section>
+
+    <!-- TRACKER -->
+    <section class="view" id="view-tracker">
+      <h1>Application tracker</h1>
+      <div class="stats" id="stats"></div>
+      <div class="results-head">
+        <div class="seg small" id="statusFilter"></div>
+        <input id="tFilter" placeholder="Filter…" aria-label="Filter applications">
+      </div>
+      <div class="cards" id="tCards"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="view" id="view-profile">
+      <h1>My CV profile</h1>
+      <p class="muted">The agent builds every tailored CV only from this content, reordering it for each job. It never invents experience. Edit it here (JSON) to update all future CVs.</p>
+      <div class="panel" id="profileView"></div>
+      <details class="panel"><summary>Edit profile (advanced)</summary>
+        <textarea id="profileJson" rows="22" spellcheck="false"></textarea>
+        <div class="row-actions"><button class="btn primary" id="saveProfile">Save profile</button></div>
+      </details>
+    </section>
+  </main>
+</div>
+
+<!-- Tailor sheet -->
+<div class="sheet-bg" id="sheetBg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <button class="x" id="sheetClose" aria-label="Close">×</button>
+    <h2 id="sheetTitle">Tailor CV &amp; cover letter</h2>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<!-- PIN login (hosted app) -->
+<div class="login" id="login" hidden>
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <img src="/icons/icon.svg" alt="" width="56" height="56">
+    <h2>Job Agent</h2>
+    <p class="muted">Enter your PIN to continue</p>
+    <input id="pinInput" type="password" inputmode="numeric" autocomplete="current-password" aria-label="PIN" required>
+    <button class="btn primary lg" type="submit">Unlock</button>
+    <p class="err" id="loginMsg" role="alert"></p>
+  </form>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js"></script>
+</body>
+</html>

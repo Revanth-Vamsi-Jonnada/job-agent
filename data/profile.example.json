@@ -1,0 +1,445 @@
+{
+  "name": "Your Name",
+  "firstName": "there",
+  "contact": {
+    "location": "Your City, UK",
+    "phone": "+44 0000 000000",
+    "email": "you@example.com",
+    "linkedin": "",
+    "github": ""
+  },
+  "needsVisaSponsorship": null,
+  "summaryIntro": "Data science graduate (replace this with your own one-line summary).",
+  "coverIntro": "Replace this with one sentence about your degree and when you finish.",
+  "coverWorkPara": "Replace this with one sentence about your work experience.",
+  "summaryClose": "I want to apply machine learning, generative AI and analytics to real business problems, with accuracy, explainability and ethics designed in from the start.",
+  "education": [
+    {
+      "title": "Your Degree, Your University",
+      "when": "Year",
+      "detail": "Key modules and grades."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Programming & data",
+      "items": [
+        "Python",
+        "pandas",
+        "NumPy",
+        "scikit-learn",
+        "Dask",
+        "SQL",
+        "R"
+      ]
+    },
+    {
+      "group": "Machine learning & statistics",
+      "items": [
+        "supervised and unsupervised learning",
+        "anomaly detection",
+        "ensemble methods (Random Forest)",
+        "model evaluation",
+        "quantitative and statistical data analysis"
+      ]
+    },
+    {
+      "group": "Generative AI & automation",
+      "items": [
+        "LLM benchmarking and model comparison",
+        "OpenAI-compatible LLM APIs",
+        "LLM-powered workflow automation (n8n)"
+      ]
+    },
+    {
+      "group": "Big data & compute",
+      "items": [
+        "distributed processing with Dask",
+        "high-performance computing infrastructure"
+      ]
+    },
+    {
+      "group": "Visualisation & communication",
+      "items": [
+        "Tableau",
+        "Power BI",
+        "dashboards",
+        "reports and plain-English summaries for non-technical stakeholders"
+      ]
+    },
+    {
+      "group": "Responsible AI & delivery",
+      "items": [
+        "data ethics and governance (MSc module)",
+        "requirements, risk and delivery planning"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "fraud",
+      "title": "Example: Machine Learning Risk Model",
+      "tag": "Course or personal project",
+      "links": [],
+      "keywords": [
+        "fraud",
+        "risk",
+        "anomal",
+        "machine learning",
+        " ml ",
+        "ml,",
+        "ml.",
+        "python",
+        "dask",
+        "scikit",
+        "random forest",
+        "classif",
+        "predict",
+        "forecast",
+        "statistic",
+        "quantitative",
+        "big data",
+        "large dataset",
+        "scale",
+        "hpc",
+        "bank",
+        "financial",
+        "credit",
+        "security",
+        "model"
+      ],
+      "summaryLine": "built a machine-learning risk-scoring model",
+      "coverPara": "Describe this project in two or three sentences: what you built, how, and what you learned.",
+      "bullets": [
+        "What you built and which tools or methods you used.",
+        "The result, ideally with a number (accuracy, time saved, data size)."
+      ]
+    },
+    {
+      "id": "genai",
+      "title": "Example: Generative AI / LLM Project",
+      "tag": "Course or personal project",
+      "links": [],
+      "keywords": [
+        "llm",
+        "large language",
+        "generative",
+        "genai",
+        "gen ai",
+        "gpt",
+        "ai",
+        "artificial intelligence",
+        "automation",
+        "automate",
+        "n8n",
+        "agent",
+        "evaluat",
+        "benchmark",
+        "prompt",
+        "nlp",
+        "api",
+        "chatbot",
+        "rag"
+      ],
+      "summaryLine": "built a project with large language models",
+      "coverPara": "Describe this project in two or three sentences: what you built, how, and what you learned.",
+      "bullets": [
+        "What you built and which tools or methods you used.",
+        "The result, ideally with a number (accuracy, time saved, data size)."
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "title": "Example: Customer Data Analysis",
+      "tag": "Course or personal project",
+      "links": [],
+      "keywords": [
+        "customer",
+        "pricing",
+        "price",
+        "analytics",
+        "analys",
+        "insight",
+        "retail",
+        "e-commerce",
+        "ecommerce",
+        "commercial",
+        "statistic",
+        "satisfaction",
+        "product",
+        "marketing",
+        "consumer"
+      ],
+      "summaryLine": "analysed customer data to produce decision-ready insight",
+      "coverPara": "Describe this project in two or three sentences: what you built, how, and what you learned.",
+      "bullets": [
+        "What you built and which tools or methods you used.",
+        "The result, ideally with a number (accuracy, time saved, data size)."
+      ]
+    },
+    {
+      "id": "tableau",
+      "title": "Example: Interactive Dashboard",
+      "tag": "Course or personal project",
+      "links": [],
+      "keywords": [
+        "tableau",
+        "power bi",
+        "dashboard",
+        "visuali",
+        "report",
+        "kpi",
+        "stakeholder",
+        "bi",
+        "business intelligence",
+        "mi",
+        "metrics",
+        "performance",
+        "storytelling",
+        "excel"
+      ],
+      "summaryLine": "built an interactive dashboard for stakeholders",
+      "coverPara": "Describe this project in two or three sentences: what you built, how, and what you learned.",
+      "bullets": [
+        "What you built and which tools or methods you used.",
+        "The result, ideally with a number (accuracy, time saved, data size)."
+      ]
+    },
+    {
+      "id": "proposal",
+      "title": "Example: Project Proposal",
+      "tag": "Course or personal project",
+      "links": [],
+      "keywords": [
+        "requirement",
+        "project",
+        "business analys",
+        "planning",
+        "scope",
+        "proposal",
+        "documentation",
+        "stakeholder",
+        "delivery",
+        "change",
+        "consult",
+        "risk"
+      ],
+      "summaryLine": "scoped a data project in a written proposal",
+      "coverPara": "Describe this project in two or three sentences: what you built, how, and what you learned.",
+      "bullets": [
+        "What you built and which tools or methods you used.",
+        "The result, ideally with a number (accuracy, time saved, data size)."
+      ]
+    }
+  ],
+  "employment": [
+    {
+      "title": "Job Title, Employer, City",
+      "when": "Year – Present",
+      "bullets": [
+        "What you do and what it shows about you."
+      ]
+    }
+  ],
+  "previousRoles": "",
+  "strengths": "Clear written and verbal communication · presenting technical findings to non-technical audiences · structured problem-solving · teamwork · time management · attention to detail · quick to learn new tools",
+  "keywords": [
+    {
+      "label": "Python",
+      "pattern": "python",
+      "weight": 3
+    },
+    {
+      "label": "SQL",
+      "pattern": "sql",
+      "weight": 3
+    },
+    {
+      "label": "Machine learning",
+      "pattern": "machine learning|ml",
+      "weight": 3
+    },
+    {
+      "label": "Data science",
+      "pattern": "data scien\\w*",
+      "weight": 3
+    },
+    {
+      "label": "Data analysis",
+      "pattern": "data analy\\w*|analytics|analytical",
+      "weight": 2
+    },
+    {
+      "label": "Statistics",
+      "pattern": "statistic\\w*|quantitative",
+      "weight": 2
+    },
+    {
+      "label": "pandas / NumPy",
+      "pattern": "pandas|numpy",
+      "weight": 1
+    },
+    {
+      "label": "scikit-learn",
+      "pattern": "scikit-learn|sklearn|scikit",
+      "weight": 2
+    },
+    {
+      "label": "Dask / big data",
+      "pattern": "dask|big data|large datasets?",
+      "weight": 1
+    },
+    {
+      "label": "Tableau",
+      "pattern": "tableau",
+      "weight": 2
+    },
+    {
+      "label": "Power BI",
+      "pattern": "power ?bi",
+      "weight": 2
+    },
+    {
+      "label": "Data visualisation",
+      "pattern": "visuali[sz]\\w*|dashboards?",
+      "weight": 2
+    },
+    {
+      "label": "LLMs",
+      "pattern": "llms?|large language models?",
+      "weight": 2
+    },
+    {
+      "label": "Generative AI",
+      "pattern": "generative ai|genai|gen ai",
+      "weight": 2
+    },
+    {
+      "label": "AI",
+      "pattern": "ai|artificial intelligence",
+      "weight": 1
+    },
+    {
+      "label": "Fraud / risk",
+      "pattern": "fraud|risk",
+      "weight": 2
+    },
+    {
+      "label": "Anomaly detection",
+      "pattern": "anomal\\w*",
+      "weight": 1
+    },
+    {
+      "label": "Predictive modelling",
+      "pattern": "predictive\\w*|modell?ing|classification|forecast\\w*",
+      "weight": 1
+    },
+    {
+      "label": "Automation",
+      "pattern": "automat\\w*|n8n",
+      "weight": 1
+    },
+    {
+      "label": "R",
+      "pattern": "r programming|r language|python or r|r or python|python, r|r, python",
+      "weight": 1
+    },
+    {
+      "label": "Ethics / governance",
+      "pattern": "ethic\\w*|governance|responsible ai",
+      "weight": 1
+    },
+    {
+      "label": "Stakeholders",
+      "pattern": "stakeholders?",
+      "weight": 1
+    },
+    {
+      "label": "Communication",
+      "pattern": "communicat\\w*|storytelling|present\\w*",
+      "weight": 1
+    }
+  ],
+  "gapKeywords": [
+    {
+      "label": "Google Cloud (GCP)",
+      "pattern": "gcp|google cloud|vertex ai|bigquery",
+      "weight": 2
+    },
+    {
+      "label": "AWS",
+      "pattern": "aws|amazon web services|sagemaker",
+      "weight": 2
+    },
+    {
+      "label": "Azure",
+      "pattern": "azure",
+      "weight": 2
+    },
+    {
+      "label": "Spark",
+      "pattern": "spark|pyspark",
+      "weight": 2
+    },
+    {
+      "label": "PyTorch",
+      "pattern": "pytorch",
+      "weight": 2
+    },
+    {
+      "label": "TensorFlow",
+      "pattern": "tensorflow|keras",
+      "weight": 2
+    },
+    {
+      "label": "XGBoost",
+      "pattern": "xgboost|lightgbm",
+      "weight": 1
+    },
+    {
+      "label": "Deep learning",
+      "pattern": "deep learning|neural networks?",
+      "weight": 1
+    },
+    {
+      "label": "Docker / Kubernetes",
+      "pattern": "docker|kubernetes|containers?",
+      "weight": 1
+    },
+    {
+      "label": "CI/CD",
+      "pattern": "ci/cd|ci cd|continuous integration|github actions|devops",
+      "weight": 1
+    },
+    {
+      "label": "MLOps",
+      "pattern": "mlops|model deployment|mlflow",
+      "weight": 1
+    },
+    {
+      "label": "Airflow / dbt",
+      "pattern": "airflow|dbt",
+      "weight": 1
+    },
+    {
+      "label": "Snowflake / Databricks",
+      "pattern": "snowflake|databricks",
+      "weight": 1
+    },
+    {
+      "label": "RAG / LangChain",
+      "pattern": "rag|retrieval[- ]augmented|langchain|llamaindex",
+      "weight": 1
+    },
+    {
+      "label": "Java / Scala / C++",
+      "pattern": "java|scala|c\\+\\+",
+      "weight": 1
+    },
+    {
+      "label": "NLP / computer vision",
+      "pattern": "nlp|natural language processing|computer vision",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "job-agent",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AI-style job search agent: company careers pages only, chance rating, tailored CV + cover letter, daily 50.",
+  "main": "server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "start:phone": "node server.js --phone",
+    "upload-profile": "node scripts/upload-profile.js",
+    "test": "node --test test/unit.test.js test/integration.test.js"
+  }
+}

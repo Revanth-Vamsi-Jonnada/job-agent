@@ -1,0 +1,9 @@
+.env
+.git
+node_modules
+data/applications
+data/tracker.json
+data/settings.json
+*.tmp
+test
+data/profile.json

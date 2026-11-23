@@ -1,0 +1,18 @@
+# Render Blueprint: Dashboard > New > Blueprint > pick this repo.
+services:
+  - type: web
+    name: job-agent
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: APIFY_TOKEN
+        sync: false        # you paste it in the Render dashboard
+      - key: APP_PIN
+        sync: false        # your login PIN (4+ characters)
+      - key: CRON_SECRET
+        generateValue: true # random secret used by the daily GitHub Action
+      - key: TZ
+        value: Europe/London

@@ -1,0 +1,12 @@
+# Secrets - never commit
+.env
+
+# Generated / personal runtime data
+data/applications/
+data/tracker.json
+data/settings.json
+*.tmp
+node_modules/
+
+# Your real CV profile (personal) - kept private, upload with: npm run upload-profile
+data/profile.json

@@ -1,0 +1,37 @@
+# Wakes the free Render app every morning and runs the Daily 50.
+# Needs two repository secrets (Settings > Secrets and variables > Actions):
+#   APP_URL      e.g. https://job-agent-xxxx.onrender.com
+#   CRON_SECRET  copy it from Render > job-agent > Environment
+# The run only starts if "Run automatically every day" is ticked in the app's Daily 50 settings.
+name: Daily 50
+
+on:
+  schedule:
+    - cron: "0 7 * * *"   # 07:00 UTC = 7am (winter) / 8am (summer) UK time
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Wake the app (free plan sleeps when idle)
+        run: |
+          for i in $(seq 1 20); do
+            if curl -fsS --max-time 30 "${{ secrets.APP_URL }}/healthz"; then echo; break; fi
+            echo "waiting for app to wake ($i)"; sleep 10
+          done
+
+      - name: Start today's run
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "${{ secrets.APP_URL }}/api/cron/daily"
+          echo
+
+      - name: Keep the app awake until it finishes
+        run: |
+          for i in $(seq 1 40); do
+            s=$(curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "${{ secrets.APP_URL }}/api/cron/status")
+            echo "$s"
+            echo "$s" | grep -q '"running":true' || exit 0
+            sleep 60
+          done
